@@ -4,25 +4,32 @@
 
     public class TLSFinder
     {
-        public string Count(document )
+        public string Count(string document)
         {
             string regex = RegexString();
-            string[] tally = FindAllTheThings.Find(string
-            document,
-            string regex)
-            ;
+            var lowercase = document.ToLower() //to make the ascii conversions part easier
+            var tally = FindAllTheThings.Find(lowercase, regex);
             return tally
         }
     }
 
     public class FindAllTheThings
     {
-        public string Find(string document, string regex)
+        public int[] Find(string document, string regex)
         {
             for (var i = 0; i < document.Length; i++)
             {
-                if (Regex.IsMatch(document.Substring(i, 3), regex)) {}
+                if (Regex.IsMatch(document.Substring(i, 3), regex))
+                {
+                    AddToTally(document.Substring(i, 3));
+                }
             }
+        }
+
+        private void AddToTally(string foundthing)
+        {
+            var position = GetIndex(foundthing);
+            tally
         }
     }
 
