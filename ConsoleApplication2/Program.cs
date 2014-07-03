@@ -9,7 +9,7 @@
             Console.Write("Enter text file location:");
             var input = Console.ReadLine();
             var document = DocumentGet.Lookup(input);
-            var tally = TLSFinder.Count(document);
+            string[] tally = TLSFinder.Count(document);
             PrintSomethingRelevant(tally);
         }
     }
