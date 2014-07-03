@@ -42,7 +42,7 @@
             var first = (char)((i % 27) + 97);
             var second = (char)((((i - first) % (27 * 27)) / 27) + 97);
             var third = (char)(((i - first - 27 * second) / (27 * 27)) + 97);
-            Console.WriteLine(first, second, third);
+            Console.WriteLine(first + second + third);
         }
     }
 }

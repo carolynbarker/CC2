@@ -2,7 +2,7 @@
 {
     public class TLSFinder
     {
-        public static int[] Count(string document)
+        public int[] Count(string document)
         {
             var regex = "[A-Za-z]{3}";
             var lowercase = document.ToLower(); //to make the ascii conversions part easier
