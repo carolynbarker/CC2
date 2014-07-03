@@ -9,7 +9,20 @@
             Console.Write("Enter text file location:");
             var input = Console.ReadLine();
             var document = DocumentGet.Lookup(input);
-            string[] tally = TLSFinder.Count(document);
+            var tally = TLSFinder.Count(document);
             PrintSomethingRelevant(tally);
         }
+
+        private static void PrintSomethingRelevant(tally )
+        {
+            Console.Write("Enter desired frequency:");
+            var freq = Console.ReadLine();
+            FindThoseTLSs(freq, tally);
+        }
+
+        private static void FindThoseTLSs(freq , tally )
+        {
+            throw new NotImplementedException();
+        }
     }
+}
