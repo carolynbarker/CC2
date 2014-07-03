@@ -21,10 +21,16 @@
         {
             for (var i = 0; i < document.Length; i++)
             {
-                if (Regex.IsMatch(document[], regex)) {}
+                if (Regex.IsMatch(document.Substring(i, 3), regex)) {}
             }
         }
     }
 
-    public class RegexString {}
+    public class RegexString
+    {
+    return
 }
+
+}
+
+    }
