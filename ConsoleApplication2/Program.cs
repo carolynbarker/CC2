@@ -10,13 +10,14 @@
             var input = Console.ReadLine();
             var documentGet = new DocumentGet();
             var document = documentGet.Lookup(input);
-            var tally = TLSFinder.Count(document);
+            var tally = new TLSFinder().Count(document);
             PrintSomethingRelevant(tally);
         }
 
         private static void Main()
         {
             new Program().Run();
+            Console.Read();
         }
 
         private void PrintSomethingRelevant(int[] tally)
@@ -39,10 +40,12 @@
 
         private void Deconvert(int i)
         {
-            var first = (char)((i % 27) + 97);
-            var second = (char)((((i - first) % (27 * 27)) / 27) + 97);
-            var third = (char)(((i - first - 27 * second) / (27 * 27)) + 97);
-            Console.WriteLine(first + second + third);
+            var first = (char)((i % 26) + 97);
+            var second = (char)((((i - first + 97) % (26 * 26)) / 26) + 97);
+            var third = (char)(((i - (first - 97) - (26 * (second - 97))) / (26 * 26)) + 97);
+            char[] doireallyneed = { first, second, third };
+            var twofuckingsteps = new string(doireallyneed);
+            Console.WriteLine(twofuckingsteps);
         }
     }
 }

@@ -6,7 +6,7 @@
         {
             var regex = "[A-Za-z]{3}";
             var lowercase = document.ToLower(); //to make the ascii conversions part easier
-            var tally = FindAllTheThings.Find(lowercase, regex);
+            var tally = new FindAllTheThings().Find(lowercase, regex);
             return tally;
         }
     }

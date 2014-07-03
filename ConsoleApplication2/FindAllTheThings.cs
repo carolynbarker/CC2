@@ -19,7 +19,7 @@
         public int[] Find(string document, string regex)
         {
             var tally = SetupTally();
-            for (var i = 0; i < document.Length; i++)
+            for (var i = 0; i < document.Length - 3; i++)
             {
                 if (Regex.IsMatch(document.Substring(i, 3), regex))
                 {
@@ -30,12 +30,12 @@
             return tally;
         }
 
-        private int GetIndex(string foundthing)
+        public int GetIndex(string foundthing)
         {
-            var first = foundthing[1] - 97;
-            var second = foundthing[2] - 97;
-            var third = foundthing[3] - 97;
-            return first + 27 * second + 27 * 27 * third;
+            var first = foundthing[0] - 97;
+            var second = foundthing[1] - 97;
+            var third = foundthing[2] - 97;
+            return first + 26 * second + 26 * 26 * third;
         }
     }
 }
