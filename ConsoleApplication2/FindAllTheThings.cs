@@ -4,23 +4,30 @@
 
     public class FindAllTheThings
     {
-        private readonly int[] tally = new int[26 * 26 * 26];
+        public int[] SetupTally()
+        {
+            var tally = new int[26 * 26 * 26];
+
+            for (var i = 0; i < tally.Length; i++)
+            {
+                tally[i] = 0;
+            }
+
+            return tally;
+        }
 
         public int[] Find(string document, string regex)
         {
+            var tally = SetupTally();
             for (var i = 0; i < document.Length; i++)
             {
                 if (Regex.IsMatch(document.Substring(i, 3), regex))
                 {
-                    AddToTally(document.Substring(i, 3));
+                    var position = GetIndex(document.Substring(i, 3));
+                    tally[position]++;
                 }
             }
-        }
-
-        private void AddToTally(string foundthing)
-        {
-            var position = GetIndex(foundthing);
-            tally[position]++;
+            return tally;
         }
 
         private int GetIndex(string foundthing)

@@ -2,14 +2,9 @@
 {
     public class TLSFinder
     {
-        public string RegexString
+        public static int[] Count(string document)
         {
-            get { return "[A-Za-z]{3}"; }
-        }
-
-        public int[] Count(string document)
-        {
-            string regex = RegexString();
+            var regex = "[A-Za-z]{3}";
             var lowercase = document.ToLower(); //to make the ascii conversions part easier
             var tally = FindAllTheThings.Find(lowercase, regex);
             return tally;

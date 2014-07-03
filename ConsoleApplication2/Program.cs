@@ -4,19 +4,25 @@
 
     internal class Program
     {
-        private static void Main()
+        public void Run()
         {
             Console.Write("Enter text file location:");
             var input = Console.ReadLine();
-            var document = DocumentGet.Lookup(input);
+            var documentGet = new DocumentGet();
+            var document = documentGet.Lookup(input);
             var tally = TLSFinder.Count(document);
             PrintSomethingRelevant(tally);
+        }
+
+        private static void Main()
+        {
+            new Program().Run();
         }
 
         private void PrintSomethingRelevant(int[] tally)
         {
             Console.Write("Enter desired frequency:");
-            var freq = Console.ReadLine();
+            var freq = Convert.ToInt32(Console.ReadLine());
             FindThoseTLSs(freq, tally);
         }
 
